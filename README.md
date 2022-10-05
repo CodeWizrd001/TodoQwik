@@ -33,10 +33,10 @@ Inside of you project, you'll see the following directories and files:
 
 ## Add Integrations
 
-Use the `npm run qwik add` command to add other integrations. Some examples of integrations include as a Cloudflare, Netlify or Vercel server, and the Static Site Generator (SSG).
+Use the `yarn qwik add` command to add other integrations. Some examples of integrations include as a Cloudflare, Netlify or Vercel server, and the Static Site Generator (SSG).
 
 ```
-npm run qwik add
+yarn qwik add
 ```
 
 ## Development
@@ -44,7 +44,7 @@ npm run qwik add
 Development mode uses [Vite's development server](https://vitejs.dev/). For Qwik during development, the `dev` command will also server-side render (SSR) the output. The client-side development modules loaded by the browser.
 
 ```
-npm run dev
+yarn dev
 ```
 
 > Note: during dev mode, Vite will request many JS files, which does not represent a Qwik production build.
@@ -54,7 +54,7 @@ npm run dev
 The preview command will create a production build of the client modules, production build of `src/entry.preview.tsx`, and create a local server. The preview server is only for convenience to locally preview a production build, but it should not be used as a production server.
 
 ```
-npm run preview
+yarn preview
 ```
 
 ## Production
@@ -62,5 +62,23 @@ npm run preview
 The production build should generate the client and server modules by running both client and server build commands. Additionally, the build command will use Typescript run a type check on the source.
 
 ```
-npm run build
+yarn build
 ```
+
+## Cloudflare Pages
+
+Cloudflare's [wrangler](https://github.com/cloudflare/wrangler) CLI can be used to preview a production build locally. To start a local server, run:
+
+```
+yarn serve
+```
+
+Then visit [http://localhost:8787/](http://localhost:8787/)
+
+### Deployments
+
+[Cloudflare Pages](https://pages.cloudflare.com/) are deployable through their [Git provider integrations](https://developers.cloudflare.com/pages/platform/git-integration/).
+
+If you don't already have an account, then [create a Cloudflare account here](https://dash.cloudflare.com/sign-up/pages). Next go to your dashboard and follow the [Cloudflare Pages deployment guide](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/).
+
+Within the projects "Settings" for "Build and deployments", the "Build command" should be `yarn build`, and the "Build output directory" should be set to `dist`.
